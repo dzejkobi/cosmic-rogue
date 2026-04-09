@@ -21,11 +21,11 @@ const ACTOR_CHAR_MAP: Dictionary = {
 	},
 	"m": {
 		"type": Enums.ACTOR_TYPE.MANIPULANT,
-		"scene": null
+		"scene": preload("res://actors/manipulant.tscn")
 	},
 	"r": {
 		"type": Enums.ACTOR_TYPE.RECRUITER,
-		"scene": null
+		"scene": preload("res://actors/recruiter.tscn")
 	}
 }
 
@@ -54,25 +54,27 @@ func read_cell_from_str(cell_str: String) -> Array:
 
 func setup_board(board: Board):
 	var grid: Grid = board.grid
-	var row_len: int
-	var pos: Vector2i
+	var grid_pos: Vector2i
 	var actor: Actor = null
 	var cell_def: Array
 	
 	level_def = FileAccess.get_file_as_string(level_def_file).strip_edges()
 	grid.size = Vector2i.ZERO
 	
-	pos = Vector2.ZERO
+	grid_pos = Vector2.ZERO
 	for row: String in level_def.split("\n"):
-		pos.x = 0
+		grid_pos.x = 0
 		for index in range(0, len(row), 2):
 			cell_def = read_cell_from_str(row.substr(index, 2))
 			if cell_def[1]["scene"]:
 				actor = cell_def[1]["scene"].instantiate()
-				actor.position = pos * Consts.TILE_SIZE
+				actor.setup(grid_pos)
 				board.add_child(actor)
-			grid.cells[pos] = GridCell.new(cell_def[0], actor)
-			pos.x += 1
-		pos.y += 1
+			else:
+				actor = null
+			
+			grid.cells[grid_pos] = GridCell.new(cell_def[0], actor)
+			grid_pos.x += 1
+		grid_pos.y += 1
 		
-	grid.size = pos
+	grid.size = grid_pos

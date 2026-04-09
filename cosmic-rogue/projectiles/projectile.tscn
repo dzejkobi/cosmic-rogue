@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://4u1sc1ekdl8r"]
+
+[ext_resource type="Script" uid="uid://ciwtqkj6uhg6j" path="res://projectiles/projectile.gd" id="1_ighsu"]
+[ext_resource type="Texture2D" uid="uid://dajqfddawor87" path="res://assets/graphics/bullets.png" id="2_7nr1q"]
+
+[node name="Projectile" type="Node2D" unique_id=1689998695]
+script = ExtResource("1_ighsu")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1497699556]
+texture = ExtResource("2_7nr1q")
+centered = false
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)

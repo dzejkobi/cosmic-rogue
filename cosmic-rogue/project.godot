@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Globals="*uid://bffso424jqltk"
 Classes="*uid://da32a5rlc26jg"
 Enums="*uid://c3ewttsqtx7ee"
 Colors="*uid://rp6fj0kernwc"

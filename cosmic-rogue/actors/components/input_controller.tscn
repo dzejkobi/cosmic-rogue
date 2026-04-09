@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://iamw260mj7ta"]
+
+[ext_resource type="Script" uid="uid://dr0dpbeuli1af" path="res://actors/components/input_controller.gd" id="1_rcth6"]
+
+[node name="InputController" type="Node" unique_id=1689396434]
+script = ExtResource("1_rcth6")

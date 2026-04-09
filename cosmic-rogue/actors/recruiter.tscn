@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://c8yasyreyvpto"]
+
+[ext_resource type="Script" uid="uid://kk24snwcd2er" path="res://actors/actor.gd" id="1_f2fmp"]
+[ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_sfvuy"]
+[ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_g8rms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2fmp"]
+atlas = ExtResource("2_sfvuy")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfvuy"]
+atlas = ExtResource("2_sfvuy")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8rms"]
+atlas = ExtResource("2_sfvuy")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqg8l"]
+atlas = ExtResource("2_sfvuy")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wr1p"]
+atlas = ExtResource("2_sfvuy")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi31p"]
+atlas = ExtResource("2_sfvuy")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gepq"]
+atlas = ExtResource("2_sfvuy")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_240qr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2fmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfvuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8rms")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqg8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wr1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi31p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gepq")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[node name="Recruiter" type="Node2D" unique_id=1742221200]
+script = ExtResource("1_f2fmp")
+color_name = "recruiter_color"
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_240qr")
+animation = &"walking"
+autoplay = "idle"
+centered = false
+
+[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_g8rms")]

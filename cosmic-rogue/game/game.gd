@@ -4,6 +4,6 @@ class_name Game extends Node2D
 
 
 func _ready() -> void:
-	board.setup()
 	RenderingServer.set_default_clear_color(Colors.bg_color)
+	Globals.set_board(board)
 	
