@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://rp6fj0kernwc"]
 
-[ext_resource type="Script" uid="uid://b3n383o4s7uhy" path="res://common/colors.gd" id="1_obi86"]
+[ext_resource type="Script" uid="uid://b3n383o4s7uhy" path="res://autoloads/colors.gd" id="1_obi86"]
 
 [node name="Colors" type="Node" unique_id=316855154]
 script = ExtResource("1_obi86")

@@ -70,6 +70,10 @@ func setup_board(board: Board):
 				actor = cell_def[1]["scene"].instantiate()
 				actor.setup(grid_pos)
 				board.add_child(actor)
+				if actor is Player:
+					board.player = actor
+				elif actor.is_enemy:
+					board.enemies.append(actor)
 			else:
 				actor = null
 			

@@ -16,6 +16,10 @@ region = Rect2(48, 0, 16, 16)
 atlas = ExtResource("2_1yqc4")
 region = Rect2(64, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yqc4"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(48, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_er1rk"]
 atlas = ExtResource("2_1yqc4")
 region = Rect2(80, 0, 16, 16)
@@ -43,6 +47,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_33vod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yqc4")
 }],
 "loop": true,
 "name": &"idle",
@@ -68,12 +75,13 @@ animations = [{
 
 [node name="Player" type="Node2D" unique_id=1742221200]
 script = ExtResource("1_1yqc4")
+attack_range = 5
 color_name = "player_color"
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_240qr")
-animation = &"walking"
+animation = &"idle"
 autoplay = "idle"
 centered = false
 

@@ -1,8 +1,11 @@
 class_name Actor extends Node2D
 
-@export var movement_duration: float = 0.5
-@export var color_name: String
+const projectile_scene = preload("res://projectiles/projectile.tscn")
+
+@export var movement_time: float = 0.5
+@export var attack_range: int = 3
 @export var is_enemy: bool = true
+@export var color_name: String
 
 var is_moving: bool = false
 var grid_pos: Vector2i
@@ -27,7 +30,7 @@ func is_movement_valid(to_grid_pos: Vector2i) -> bool:
 	return target_cell and target_cell.is_passable()
 
 
-func movement_finished_callback() -> void:
+func _movement_finished_callback() -> void:
 	anim_sprite.play("idle")
 	position = Grid.grid_pos_to_pos(grid_pos)
 	is_moving = false
@@ -53,14 +56,56 @@ func move_to_cell(to_grid_pos: Vector2i) -> void:
 	anim_sprite.play("walking")
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(
-		self, "position", target_pos, movement_duration
+		self, "position", target_pos, movement_time
 	)
-	tween.tween_callback(movement_finished_callback)
+	tween.tween_callback(_movement_finished_callback)
+	
+	var timer: SceneTreeTimer = get_tree().create_timer(0.1 * movement_time)
+	timer.timeout.connect(func ():
+		# we need to wait until all actors updates their grid positions
+		try_to_shoot()
+	)
+
+
+func find_enemies_in_range() -> Array[Actor]:
+	var targets: Array[Actor]
+	if self is Player:
+		targets = Globals.board.enemies
+	elif is_enemy:
+		targets = [Globals.board.player]
+	return Grid.find_actors_in_range(grid_pos, attack_range, targets)
+	
+	
+func shoot(target: Actor) -> void:
+	var projectile: Projectile = projectile_scene.instantiate()
+	projectile.position = position
+	Globals.board.actor_layer.add_child(projectile)
+	projectile.move_to(target.grid_pos)
+
+
+func try_to_shoot() -> void:
+	var targets = find_enemies_in_range()
+	if len(targets):
+		targets.sort_custom(func (a: Actor, b: Actor):
+			return (
+				a.grid_pos.distance_to(grid_pos) <
+				b.grid_pos.distance_to(grid_pos)
+			)
+
+		)
+		shoot(targets[0])
 
 
 func die() -> void:
+	Globals.grid.cells.get(grid_pos).actor = null
+	if self is Player:
+		Globals.board.player = null
+	elif is_enemy:
+		Globals.board.enemies.erase(self)
+		if not len(Globals.board.enemies):
+			Globals.board.complete_level()
 	queue_free()
 
 
-func hit_by_projectile(projectile: Projectile) -> void:
+func hit_by_projectile(_projectile: Projectile) -> void:
 	die()

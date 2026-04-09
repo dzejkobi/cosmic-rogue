@@ -1,2 +1,0 @@
-# Types
-extends Node

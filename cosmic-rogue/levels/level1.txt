@@ -1,12 +1,12 @@
-x x x x x x x x x x x x
-x       x             x
-x    p  x      m      x
-x       x             x
-x                     x
-x                     x
-x    m         r      x
-x                     x
-x                     x
-x                m    x
-x    r                x
-x x x x x x x x x x x x
+x x x x x x x x x x x x x x x x
+x       x              m      x
+x    p  x       o             x
+x       x                  r  x
+x                       o     x
+x                             x
+x  m   m       r      x x x x x
+x                             x
+x                             x
+x                m    o    r  x
+x    r      o                 x
+x x x x x x x x x x x x x x x x

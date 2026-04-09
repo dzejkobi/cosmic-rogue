@@ -26,7 +26,7 @@ var terrain_defs: Array[TerrainDef] = [
 
 
 func _find_terrain_def_index(terrain_type: Enums.TERRAIN_TYPE) -> int:
-	for i in range(len(terrain_defs) - 1):
+	for i in range(len(terrain_defs)):
 		if terrain_defs[i].terrain_type == terrain_type:
 			return i
 	push_error(

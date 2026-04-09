@@ -18,14 +18,13 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*uid://bffso424jqltk"
-Classes="*uid://da32a5rlc26jg"
 Enums="*uid://c3ewttsqtx7ee"
 Colors="*uid://rp6fj0kernwc"
 Consts="*uid://dtlbhxcbbmb6l"
 
 [display]
 
-window/size/viewport_width=768
+window/size/viewport_width=1024
 window/size/viewport_height=768
 
 [physics]

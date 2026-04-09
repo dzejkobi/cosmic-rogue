@@ -15,5 +15,5 @@ func move() -> void:
 	pass  # Override in derived class
 
 
-func _on_player_movement_started(player: Actor):
+func _on_player_movement_started(_player: Actor):
 	move()

@@ -20,6 +20,23 @@ static func grid_pos_to_pos(grid_pos: Vector2i) -> Vector2:
 		grid_pos.y * Consts.TILE_SIZE.y
 	)
 
+
+static func find_actors_in_range(
+	center: Vector2i, _range: int, actors: Array[Actor]
+) -> Array[Actor]:
+	var result: Array[Actor] = []
+	var vec: Vector2i
+	var distance: float
+
+	for actor: Actor in actors:
+		vec.x = actor.grid_pos.x - center.x
+		vec.y = actor.grid_pos.y - center.y
+		distance = sqrt(vec.x * vec.x + vec.y * vec.y)
+		if distance <= _range:
+			result.append(actor)
+	
+	return result
+
 # ------
 
 
