@@ -1,12 +1,70 @@
 [gd_scene format=3 uid="uid://cs02me5wqeif6"]
 
 [ext_resource type="Script" uid="uid://dcukdbf1lqb2g" path="res://game/game.gd" id="1_h7iqs"]
-[ext_resource type="PackedScene" uid="uid://1s0uywhr1pp7" path="res://game/board.tscn" id="1_l1rk1"]
+[ext_resource type="PackedScene" uid="uid://1s0uywhr1pp7" path="res://game/elements/board.tscn" id="1_l1rk1"]
 [ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level.tscn" id="3_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://dksx8adgvjahv" path="res://game/elements/main_menu.tscn" id="4_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://bghihuxbtw58j" path="res://game/elements/settings_menu.tscn" id="5_dxrkv"]
 
-[node name="Game" type="Node2D" unique_id=540794393]
+[node name="Game" type="Control" unique_id=116307472]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_h7iqs")
 
-[node name="Board" parent="." unique_id=1900201133 instance=ExtResource("1_l1rk1")]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=398546351]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1708943814]
+handle_input_locally = false
+snap_2d_vertices_to_pixel = true
+use_hdr_2d = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(1024, 768)
+render_target_update_mode = 4
+
+[node name="Board" parent="SubViewportContainer/SubViewport" unique_id=1900201133 instance=ExtResource("1_l1rk1")]
+unique_name_in_owner = true
 
 [node name="Level1" parent="." unique_id=186858389 instance=ExtResource("3_4fuuu")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1126406438]
+
+[node name="GUIRoot" type="Control" parent="CanvasLayer" unique_id=1320106535]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" parent="CanvasLayer/GUIRoot" unique_id=345281571 instance=ExtResource("4_4fuuu")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="SettingsMenu" parent="CanvasLayer/GUIRoot" unique_id=1294574790 instance=ExtResource("5_dxrkv")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -79.5
+offset_right = 100.5
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="resized" from="." to="." method="_on_resized"]

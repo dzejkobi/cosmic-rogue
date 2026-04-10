@@ -2,6 +2,7 @@ class_name Player extends Actor
 
 
 func move_to_cell(to_grid_pos: Vector2i) -> void:
+	Sounds.footstep.play({"global_position": global_position})
 	super.move_to_cell(to_grid_pos)
 	Globals.board.player_movement_started.emit(self)
 

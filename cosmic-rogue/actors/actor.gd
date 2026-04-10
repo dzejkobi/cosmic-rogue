@@ -78,6 +78,7 @@ func find_enemies_in_range() -> Array[Actor]:
 	
 func shoot(target: Actor) -> void:
 	var projectile: Projectile = projectile_scene.instantiate()
+	Sounds.laser.play({"global_position": global_position})
 	projectile.position = position
 	Globals.board.actor_layer.add_child(projectile)
 	projectile.move_to(target.grid_pos)
@@ -102,6 +103,7 @@ func die() -> void:
 		Globals.board.player = null
 	elif is_enemy:
 		Globals.board.enemies.erase(self)
+		Sounds.enemy_dies.play({"global_position": global_position})
 		if not len(Globals.board.enemies):
 			Globals.board.complete_level()
 	queue_free()

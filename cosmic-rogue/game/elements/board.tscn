@@ -1,15 +1,21 @@
 [gd_scene format=3 uid="uid://1s0uywhr1pp7"]
 
-[ext_resource type="PackedScene" uid="uid://bkrk3tv8qtsvn" path="res://game/grid.tscn" id="1_dsf1b"]
-[ext_resource type="Script" uid="uid://bh7xgp04liqma" path="res://game/board.gd" id="1_sci5y"]
+[ext_resource type="PackedScene" uid="uid://bkrk3tv8qtsvn" path="res://game/elements/grid.tscn" id="1_dsf1b"]
+[ext_resource type="Script" uid="uid://bh7xgp04liqma" path="res://game/elements/board.gd" id="1_sci5y"]
 [ext_resource type="TileSet" uid="uid://sw64kb2abd4r" path="res://tilesets/terrain.tres" id="2_0c24q"]
-[ext_resource type="Script" uid="uid://ditt6sjhkns4e" path="res://game/terrain_layer.gd" id="3_wxh40"]
+[ext_resource type="Script" uid="uid://ditt6sjhkns4e" path="res://game/elements/terrain_layer.gd" id="3_wxh40"]
 [ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level.tscn" id="4_2nrni"]
 
 [node name="Board" type="Node2D" unique_id=1900201133 node_paths=PackedStringArray("grid", "level")]
 script = ExtResource("1_sci5y")
 grid = NodePath("Grid")
 level = NodePath("Level")
+
+[node name="Camera" type="Camera2D" parent="." unique_id=359500498]
+unique_name_in_owner = true
+
+[node name="AudioListener" type="AudioListener2D" parent="Camera" unique_id=2057507316]
+unique_name_in_owner = true
 
 [node name="TerrainLayer" type="TileMapLayer" parent="." unique_id=1604503190]
 scale = Vector2(4, 4)

@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dxyb5rrlf3o8v"]
+
+[ext_resource type="FontFile" uid="uid://b2nrwp66j3vxv" path="res://assets/theme/Pixellium.ttf" id="1_e04sg"]
+
+[resource]
+default_font = ExtResource("1_e04sg")
+default_font_size = 36

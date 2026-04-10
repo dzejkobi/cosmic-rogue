@@ -1,6 +1,6 @@
 class_name Projectile extends Node2D
 
-@export var speed: float = 600.0  # pixels / sec
+@export var speed: float = 800.0  # pixels / sec
 
 var to_grid_pos: Vector2i
 

@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bghihuxbtw58j"]
+
+[ext_resource type="Script" uid="uid://dv4405fp425u4" path="res://game/elements/settings_menu.gd" id="1_jj1jf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y8y0b"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[node name="SettingsMenu" type="CenterContainer" unique_id=1294574790]
+script = ExtResource("1_jj1jf")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2057808493]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y8y0b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=696363860]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1778061709]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Cosmic Rogue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1878694178]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=168627006]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back to main"
+
+[node name="DisplayBtn" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1689634140]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Display: "
+
+[node name="SoundLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1267920539]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Sounds:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=993773240]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Master volume:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolSlider" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=1786443622]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="SoundVolLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=222705682]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Sound volume:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundVolSlider" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=490165276]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="MusicVolLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=89233123]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Music volume:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicVolSlider" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=214119497]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/DisplayBtn" to="." method="_on_display_btn_pressed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/MasterVolSlider" to="." method="_on_master_vol_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/SoundVolSlider" to="." method="_on_sound_vol_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]

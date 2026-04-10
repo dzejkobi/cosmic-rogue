@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bs17q8d5nonjr"]
+
+[ext_resource type="Script" uid="uid://b5xk5gogpdw73" path="res://autoloads/audio_player.gd" id="1_bbogv"]
+
+[node name="AudioPlayer" type="Node" unique_id=2043992539]
+script = ExtResource("1_bbogv")
+stream_count = null
+
+[node name="SFXPlayers" type="Node" parent="." unique_id=1581952069]
+unique_name_in_owner = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1787969660]
+unique_name_in_owner = true
+bus = &"Music"
