@@ -2,16 +2,22 @@
 
 [ext_resource type="Script" uid="uid://dcukdbf1lqb2g" path="res://game/game.gd" id="1_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://1s0uywhr1pp7" path="res://game/elements/board.tscn" id="1_l1rk1"]
-[ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level.tscn" id="3_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://cyd5qjbx1wgjd" path="res://levels/level_loader.tscn" id="3_4fuuu"]
 [ext_resource type="PackedScene" uid="uid://dksx8adgvjahv" path="res://game/elements/main_menu.tscn" id="4_4fuuu"]
+[ext_resource type="PackedScene" uid="uid://defbeu4225vwe" path="res://game/elements/game_over_panel.tscn" id="4_y36n6"]
 [ext_resource type="PackedScene" uid="uid://bghihuxbtw58j" path="res://game/elements/settings_menu.tscn" id="5_dxrkv"]
 [ext_resource type="Shader" uid="uid://d1wtuqejjek2d" path="res://shaders/bloom.gdshader" id="6_dakft"]
 [ext_resource type="Shader" uid="uid://d0gd0l2ni37ak" path="res://shaders/crt.gdshader" id="7_u5opy"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5opy"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 16.0
+expand_margin_right = 16.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u5opy"]
 shader = ExtResource("6_dakft")
-shader_parameter/bloom_spread = 0.6
-shader_parameter/bloom_intensity = 0.6
+shader_parameter/bloom_spread = 1.4
+shader_parameter/bloom_intensity = 0.35
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y36n6"]
 shader = ExtResource("7_u5opy")
@@ -29,7 +35,7 @@ shader_parameter/distort_intensity = 0.05
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.0400000019
-shader_parameter/aberration = 0.010000047974999982
+shader_parameter/aberration = 0.01000004797499998
 shader_parameter/brightness = 1.3
 shader_parameter/discolor = true
 shader_parameter/warp_amount = 0.262000012445
@@ -45,28 +51,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h7iqs")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=398546351]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1708943814]
-handle_input_locally = false
-snap_2d_vertices_to_pixel = true
-use_hdr_2d = true
-canvas_item_default_texture_filter = 0
-size = Vector2i(1024, 768)
-render_target_update_mode = 4
-
-[node name="Board" parent="SubViewportContainer/SubViewport" unique_id=1900201133 instance=ExtResource("1_l1rk1")]
-unique_name_in_owner = true
-
-[node name="Level1" parent="." unique_id=186858389 instance=ExtResource("3_4fuuu")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1126406438]
 
@@ -98,8 +82,71 @@ offset_bottom = 79.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TopPanelContainer" type="PanelContainer" parent="CanvasLayer/GUIRoot" unique_id=1915464721]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -128.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_u5opy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GUIRoot/TopPanelContainer" unique_id=982339928]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="LevelLabel" type="Label" parent="CanvasLayer/GUIRoot/TopPanelContainer/HBoxContainer" unique_id=288329215]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Level: 0"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/GUIRoot/TopPanelContainer/HBoxContainer" unique_id=828168804]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Score: 0"
+
+[node name="GameOverPanel" parent="CanvasLayer/GUIRoot" unique_id=595611579 instance=ExtResource("4_y36n6")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = -109.0
+offset_top = -81.0
+offset_right = 109.0
+offset_bottom = 81.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=398546351]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1708943814]
+handle_input_locally = false
+snap_2d_vertices_to_pixel = true
+use_hdr_2d = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(1280, 960)
+render_target_update_mode = 4
+
+[node name="Board" parent="SubViewportContainer/SubViewport" unique_id=1900201133 instance=ExtResource("1_l1rk1")]
+unique_name_in_owner = true
+
+[node name="LevelLoader" parent="SubViewportContainer/SubViewport/Board" unique_id=186858389 instance=ExtResource("3_4fuuu")]
+unique_name_in_owner = true
+level_names = Array[String](["level1", "level2", "level3"])
+
 [node name="BloomLayer" type="CanvasLayer" parent="." unique_id=1661826613]
 unique_name_in_owner = true
+visible = false
 
 [node name="Bloom" type="ColorRect" parent="BloomLayer" unique_id=1745205871]
 material = SubResource("ShaderMaterial_u5opy")
@@ -112,6 +159,7 @@ mouse_filter = 2
 
 [node name="CrtLayer" type="CanvasLayer" parent="." unique_id=1344653467]
 unique_name_in_owner = true
+visible = false
 
 [node name="CRT" type="ColorRect" parent="CrtLayer" unique_id=703444585]
 material = SubResource("ShaderMaterial_y36n6")

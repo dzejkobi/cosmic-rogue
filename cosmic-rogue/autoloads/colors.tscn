@@ -4,11 +4,11 @@
 
 [node name="Colors" type="Node" unique_id=316855154]
 script = ExtResource("1_obi86")
-bg_color = Color(0.07751515, 0.06551238, 0.15609443, 1)
+bg_color = Color(0.028879995, 0.023200002, 0.08, 1)
 fg_color = Color(1, 1, 1, 1)
-wall_color = Color(0.22471818, 0.25776342, 1, 1)
+wall_color = Color(0.1882353, 0.22745098, 0.30980393, 1)
 stone_color = Color(0.65, 0.43333334, 0.325, 1)
-player_color = Color(0, 1, 0.3333335, 1)
-manipulant_color = Color(1, 0.6784314, 0.30980393, 1)
-recruiter_color = Color(0.74683344, 0.51, 1, 1)
+player_color = Color(0, 1, 0.41666675, 1)
+manipulant_color = Color(1, 0.7725, 0.35000002, 1)
+recruiter_color = Color(0.6125002, 0.25, 1, 1)
 metadata/_custom_type_script = "uid://dobwc8a2ss8oy"

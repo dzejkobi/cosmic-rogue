@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://defbeu4225vwe"]
+
+[ext_resource type="Script" uid="uid://nfyah4um77il" path="res://game/elements/game_over_panel.gd" id="1_tgd3c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft810"]
+bg_color = Color(0, 0, 0, 1)
+corner_detail = 1
+expand_margin_left = 32.0
+expand_margin_top = 32.0
+expand_margin_right = 32.0
+expand_margin_bottom = 32.0
+
+[node name="GameOverPanel" type="PanelContainer" unique_id=595611579]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ft810")
+script = ExtResource("1_tgd3c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=585931531]
+layout_mode = 2
+alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="VBoxContainer" unique_id=1016480702]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="VBoxContainer" unique_id=352422245]
+layout_mode = 2
+text = "You died on level: "
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="VBoxContainer" unique_id=2116429821]
+layout_mode = 2
+text = "with score:"
+horizontal_alignment = 1

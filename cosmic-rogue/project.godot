@@ -31,8 +31,8 @@ Settings="*uid://d1k0ie8w7exmo"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=768
+window/size/viewport_width=1280
+window/size/viewport_height=960
 window/size/mode=3
 window/stretch/mode="canvas_items"
 

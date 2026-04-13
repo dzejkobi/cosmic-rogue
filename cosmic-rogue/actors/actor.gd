@@ -5,6 +5,7 @@ const projectile_scene = preload("res://projectiles/projectile.tscn")
 @export var movement_time: float = 0.5
 @export var attack_range: int = 3
 @export var is_enemy: bool = true
+@export var score: int = 5
 @export var color_name: String
 
 var is_moving: bool = false
@@ -102,10 +103,10 @@ func die() -> void:
 	if self is Player:
 		Globals.board.player = null
 	elif is_enemy:
+		Globals.board.score += score
 		Globals.board.enemies.erase(self)
 		Sounds.enemy_dies.play({"global_position": global_position})
-		if not len(Globals.board.enemies):
-			Globals.board.complete_level()
+		Globals.board.check_level_completion()
 	queue_free()
 
 
