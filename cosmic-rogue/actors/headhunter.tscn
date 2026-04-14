@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://crmd8x2qiowwd"]
+
+[ext_resource type="Script" uid="uid://be6j4owvfvxas" path="res://actors/headhunter.gd" id="1_dvgd7"]
+[ext_resource type="Texture2D" uid="uid://cudj45yj27ei4" path="res://assets/graphics/actors.png" id="2_tasfr"]
+[ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_2gi4b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvgd7"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tasfr"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gi4b"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(80, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00rme"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj11s"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nknve"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcwgx"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6tyx"]
+atlas = ExtResource("2_tasfr")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_240qr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvgd7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tasfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gi4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00rme")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj11s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nknve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcwgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6tyx")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 10.0
+}]
+
+[node name="Headhunter" type="Node2D" unique_id=1742221200]
+script = ExtResource("1_dvgd7")
+attack_range = 4
+score = 15
+color_name = "headhunter_color"
+projectile_type = 3
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_240qr")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.53797966
+centered = false
+
+[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_2gi4b")]

@@ -12,3 +12,4 @@ extends Node
 @export var player_color: Color
 @export var manipulant_color: Color
 @export var recruiter_color: Color
+@export var headhunter_color: Color

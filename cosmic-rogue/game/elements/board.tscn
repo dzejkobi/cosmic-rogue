@@ -23,6 +23,8 @@ script = ExtResource("3_wxh40")
 
 [node name="ActorLayer" type="Node2D" parent="." unique_id=2085718794]
 
+[node name="EntityLayer" type="Node2D" parent="." unique_id=994830883]
+
 [node name="Grid" parent="." unique_id=1234281924 instance=ExtResource("1_dsf1b")]
 
 [node name="Level" parent="." unique_id=186858389 instance=ExtResource("4_2nrni")]

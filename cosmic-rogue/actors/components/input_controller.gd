@@ -4,7 +4,11 @@ class_name InputController extends Node
 
 
 func _process(_delta: float) -> void:
-	if Globals.board.is_paused or not actor or actor.is_moving:
+	if (
+		Globals.board.is_paused or
+		Globals.board.pending_projectiles or
+		not actor or actor.is_moving
+	):
 		return
 
 	var direction := Vector2i.ZERO

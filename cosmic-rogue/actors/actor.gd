@@ -1,6 +1,6 @@
 class_name Actor extends Node2D
 
-const projectile_scene = preload("res://projectiles/projectile.tscn")
+const projectile_scene = preload("res://entities/projectile.tscn")
 
 @export var movement_time: float = 0.5
 @export var attack_range: int = 3
@@ -11,12 +11,14 @@ const projectile_scene = preload("res://projectiles/projectile.tscn")
 
 var is_moving: bool = false
 var grid_pos: Vector2i
+var prev_grid_pos: Vector2i
 
 @onready var anim_sprite: AnimatedSprite2D = $AnimSprite
 
 
 func setup(_grid_pos: Vector2i) -> void:
 	grid_pos = _grid_pos
+	prev_grid_pos = _grid_pos
 	position = Grid.grid_pos_to_pos(grid_pos)
 
 
@@ -53,6 +55,7 @@ func move_to_cell(to_grid_pos: Vector2i) -> void:
 	# final position has to be set immidiately
 	Globals.grid.cells[grid_pos].actor = null
 	Globals.grid.cells[to_grid_pos].actor = self
+	prev_grid_pos = grid_pos
 	grid_pos = to_grid_pos
 
 	anim_sprite.play("walking")
@@ -114,3 +117,17 @@ func die() -> void:
 
 func hit_by_projectile(_projectile: Projectile) -> void:
 	die()
+
+
+func get_predicted_grid_pos() -> Vector2i:
+	if prev_grid_pos == grid_pos:
+		return [
+			grid_pos + Vector2i.UP,
+			grid_pos + Vector2i.RIGHT,
+			grid_pos + Vector2i.DOWN,
+			grid_pos + Vector2i.LEFT,
+		].pick_random()
+	else:
+		var direction: Vector2i = grid_pos - prev_grid_pos
+		return grid_pos + direction
+	

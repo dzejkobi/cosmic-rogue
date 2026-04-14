@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4u1sc1ekdl8r"]
 
-[ext_resource type="Script" uid="uid://ciwtqkj6uhg6j" path="res://projectiles/projectile.gd" id="1_ighsu"]
+[ext_resource type="Script" uid="uid://ciwtqkj6uhg6j" path="res://entities/projectile.gd" id="1_ighsu"]
 [ext_resource type="Texture2D" uid="uid://dajqfddawor87" path="res://assets/graphics/bullets.png" id="2_7nr1q"]
 
 [node name="Projectile" type="Node2D" unique_id=1689998695 groups=["projectile"]]

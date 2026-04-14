@@ -9,6 +9,7 @@ var player: Player
 var enemies: Array[Actor] = []
 
 var is_set: bool = false
+var pending_projectiles: bool = false
 
 var score: int = 0:
 	set(value):
@@ -19,6 +20,7 @@ var score: int = 0:
 
 @onready var terrain_layer: TerrainLayer = $TerrainLayer
 @onready var actor_layer: Node2D = $ActorLayer
+@onready var entity_layer: Node2D = $EntityLayer
 @onready var camera: Camera2D = %Camera
 @onready var level_loader: LevelLoader = %LevelLoader
 
@@ -42,6 +44,8 @@ func setup() -> void:
 	if player:
 		player.queue_free()
 		player = null
+	for node: Node in entity_layer.get_children():
+		node.queue_free()
 	for enemy: Actor in enemies:
 		enemy.queue_free()
 	enemies.clear()
@@ -72,7 +76,9 @@ func complete_level() -> void:
 
 func until_no_projectiles() -> void:
 	while get_tree().get_nodes_in_group("projectile").size() > 0:
+		pending_projectiles = true
 		await get_tree().process_frame
+	pending_projectiles = false
 
 
 func check_level_completion() -> void:

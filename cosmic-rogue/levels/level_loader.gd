@@ -1,5 +1,7 @@
 class_name LevelLoader extends Node
 
+# TODO: Bonus points to collect in each level, dropping down after each move
+
 const TERRAIN_CHAR_MAP = {
 	" ": Enums.TERRAIN_TYPE.FLOOR,
 	"x": Enums.TERRAIN_TYPE.WALL,
@@ -26,6 +28,10 @@ const ACTOR_CHAR_MAP: Dictionary = {
 	"r": {
 		"type": Enums.ACTOR_TYPE.RECRUITER,
 		"scene": preload("res://actors/recruiter.tscn")
+	},
+	"h": {
+		"type": Enums.ACTOR_TYPE.HEADHUNTER,
+		"scene": preload("res://actors/headhunter.tscn")
 	}
 }
 

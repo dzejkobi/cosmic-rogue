@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://6i7jj0piw2ue"]
+
+[ext_resource type="Script" uid="uid://bmteto2ysk6v2" path="res://entities/crosshair.gd" id="1_kkuwc"]
+[ext_resource type="Texture2D" uid="uid://b3ryeu82otixl" path="res://assets/graphics/objects.png" id="2_vn0fv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rorj"]
+atlas = ExtResource("2_vn0fv")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gp5l"]
+atlas = ExtResource("2_vn0fv")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu18p"]
+atlas = ExtResource("2_vn0fv")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtb2u"]
+atlas = ExtResource("2_vn0fv")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b264l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rorj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gp5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu18p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtb2u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Crosshair" type="Node2D" unique_id=511844999]
+script = ExtResource("1_kkuwc")
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=238092746]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_b264l")
+autoplay = "default"
+frame_progress = 0.9590743
+centered = false

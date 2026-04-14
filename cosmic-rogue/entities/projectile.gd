@@ -1,6 +1,6 @@
 class_name Projectile extends Node2D
 
-const  SplashScene := preload("res://projectiles/splash.tscn")
+const  SplashScene := preload("res://entities/splash.tscn")
 
 @export var kind: Enums.PROJECTILE_TYPE
 @export var speed: float = 800.0  # pixels / sec
@@ -13,10 +13,16 @@ var kind_map: Dictionary = {
 	Enums.PROJECTILE_TYPE.PLAYER_BOLT: {
 		"region": Rect2(48, 0, 16, 16),
 		"color": Colors.player_color
+		
 	},
 	Enums.PROJECTILE_TYPE.RECRUITER_BOLT: {
 		"region": Rect2(48, 0, 16, 16),
 		"color": Colors.recruiter_color
+	},
+	Enums.PROJECTILE_TYPE.HEADHUNTER_BOLT: {
+		"region": Rect2(48, 0, 16, 16),
+		"color": Colors.headhunter_color,
+		"speed": 1600.0
 	},
 	Enums.PROJECTILE_TYPE.WEB: {
 		"region": Rect2(32, 0, 16, 16),
@@ -30,6 +36,7 @@ func _ready() -> void:
 	if map_item:
 		sprite.region_rect = map_item["region"]
 		sprite.modulate = map_item["color"]
+		speed = map_item.get("speed", speed)
 
 
 func move_to(_to_grid_pos: Vector2i) -> void:
