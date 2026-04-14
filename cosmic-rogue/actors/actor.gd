@@ -113,7 +113,9 @@ func die(_killer: Actor = null) -> void:
 		Globals.board.enemies.erase(self)
 		Sounds.enemy_dies.play({"global_position": global_position})
 		Globals.board.check_level_completion()
-	queue_free()
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.1)
+	tween.tween_callback(func (): queue_free())
 
 
 func hit_by_projectile(projectile: Projectile) -> void:
