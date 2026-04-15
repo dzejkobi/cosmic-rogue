@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://ddbsq7q2k6ubj"]
+
+[ext_resource type="Script" uid="uid://dvy3ou8pj6wja" path="res://actors/tank.gd" id="1_nr1qx"]
+[ext_resource type="Texture2D" uid="uid://be80qfcg11psg" path="res://assets/graphics/tank.png" id="2_nr1qx"]
+[ext_resource type="PackedScene" uid="uid://b1x2jw1behuyh" path="res://actors/components/random_movement_ai.tscn" id="3_jvisx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ilewo"]
+load_path = "res://.godot/imported/tank.png-66aa283f2ec402513bec11bf212c8554.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvisx"]
+atlas = SubResource("CompressedTexture2D_ilewo")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1mcbn"]
+atlas = SubResource("CompressedTexture2D_ilewo")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r11dp"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgetu"]
+atlas = SubResource("CompressedTexture2D_ilewo")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irvja"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iudq1"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onkiq"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ne6ih"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdois"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvbtj"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slngr"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v75i7"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bt1o"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ns5vh"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7nhx"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kl0n"]
+atlas = ExtResource("2_nr1qx")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_240qr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvisx")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1mcbn")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r11dp")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgetu")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irvja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iudq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onkiq")
+}],
+"loop": true,
+"name": &"moving_down",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ne6ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdois")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvbtj")
+}],
+"loop": true,
+"name": &"moving_left",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slngr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v75i7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bt1o")
+}],
+"loop": true,
+"name": &"moving_right",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ns5vh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7nhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kl0n")
+}],
+"loop": true,
+"name": &"moving_up",
+"speed": 16.0
+}]
+
+[node name="Tank" type="Node2D" unique_id=1742221200]
+script = ExtResource("1_nr1qx")
+verbose_name = "Deadline"
+attack_range = -1
+score = 12
+color_name = "tank_color"
+projectile_type = 4
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_240qr")
+animation = &"moving_left"
+autoplay = "idle_up"
+frame = 1
+frame_progress = 0.42323977
+centered = false
+
+[node name="AI" parent="." unique_id=2048733410 instance=ExtResource("3_jvisx")]

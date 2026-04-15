@@ -13,3 +13,4 @@ extends Node
 @export var crawler_color: Color
 @export var recruiter_color: Color
 @export var headhunter_color: Color
+@export var tank_color: Color

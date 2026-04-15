@@ -23,6 +23,8 @@ func move_randomly() -> void:
 	var moves: Array[Vector2i] = get_valid_moves()
 	if len(moves):
 		actor.move_to_cell(moves.pick_random())
+	else:
+		actor.try_to_shoot()
 	
 	
 func move() -> void:

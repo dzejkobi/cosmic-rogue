@@ -17,19 +17,21 @@ var kind_map: Dictionary = {
 	},
 	Enums.PROJECTILE_TYPE.RECRUITER_BOLT: {
 		"region": Rect2(48, 0, 16, 16),
-		"color": Colors.recruiter_color,
-		"actor_name": "Rectuiter"
+		"color": Colors.recruiter_color
 	},
 	Enums.PROJECTILE_TYPE.HEADHUNTER_BOLT: {
 		"region": Rect2(48, 0, 16, 16),
 		"color": Colors.headhunter_color,
-		"speed": 1600.0,
-		"actor_name": "Headhunter"
+		"speed": 1600.0
+	},
+	Enums.PROJECTILE_TYPE.TANK_BOLT: {
+		"region": Rect2(48, 0, 16, 16),
+		"color": Colors.tank_color,
+		"speed": 1600.0
 	},
 	Enums.PROJECTILE_TYPE.WEB: {
 		"region": Rect2(32, 0, 16, 16),
-		"color": Colors.crawler_color,
-		"actor_name": "Crawler"
+		"color": Colors.crawler_color
 	},
 }
 

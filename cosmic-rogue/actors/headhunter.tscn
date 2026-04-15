@@ -76,7 +76,7 @@ animations = [{
 [node name="Headhunter" type="Node2D" unique_id=1742221200]
 script = ExtResource("1_dvgd7")
 verbose_name = "Headhunter"
-attack_range = 4
+attack_range = -1
 score = 15
 color_name = "headhunter_color"
 projectile_type = 3

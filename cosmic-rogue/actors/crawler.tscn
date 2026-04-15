@@ -63,7 +63,7 @@ animations = [{
 script = ExtResource("1_g6tml")
 verbose_name = "Crawler"
 color_name = "crawler_color"
-projectile_type = 4
+projectile_type = 5
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="." unique_id=578793987]
 scale = Vector2(4, 4)

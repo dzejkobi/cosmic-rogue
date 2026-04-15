@@ -11,5 +11,5 @@ x m               o       x           x
 x                         x       r3  x
 x     m2                  x           x
 x               m         x   o       x
-x   r2  o             r2  x       r   x
+x   r2  o             r2  x       t2  x
 x x x x x x x x x x x x x x x x x x x x

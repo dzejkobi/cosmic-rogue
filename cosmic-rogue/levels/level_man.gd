@@ -28,6 +28,10 @@ const ACTOR_CHAR_MAP: Dictionary = {
 	"h": {
 		"type": Enums.ACTOR_TYPE.HEADHUNTER,
 		"scene": preload("res://actors/headhunter.tscn")
+	},
+	"t": {
+		"type": Enums.ACTOR_TYPE.TANK,
+		"scene": preload("res://actors/tank.tscn")
 	}
 }
 
