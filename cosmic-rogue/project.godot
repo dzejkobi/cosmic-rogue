@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Cosmic Rogue"
+config/name="Cosmic Freelancer"
 run/main_scene="uid://cs02me5wqeif6"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://demfopeaqhnj8"
 
 [audio]
 

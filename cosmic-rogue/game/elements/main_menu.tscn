@@ -34,7 +34,7 @@ layout_mode = 2
 [node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1737867909]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "Cosmic Rogue"
+text = "Cosmic Freelancer"
 horizontal_alignment = 1
 vertical_alignment = 1
 
